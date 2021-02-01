@@ -3,8 +3,9 @@ module.exports = {
   env: {
     node: true,
   },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
+    'plugin:prettier/recommended',
     'eslint:recommended',
   ],
   parserOptions: {
@@ -13,9 +14,16 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'semi': ['error', 'never'],
-    'indent': ['error', 2],
-    'quotes': ['error', 'single'],
-    'comma-dangle': ['error', 'always-multiline'],
+    semi: ['error', 'never'],
+    indent: ['error', 2],
+    quotes: ['error', 'single'],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'all',
+      },
+    ],
   },
 }
