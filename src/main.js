@@ -3,8 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// Tailwind
+// Tailwind.
 import 'tailwindcss/tailwind.css'
+
+// Material Design Icons.
+import '@mdi/font/css/materialdesignicons.min.css'
 
 Vue.config.productionTip = false
 
