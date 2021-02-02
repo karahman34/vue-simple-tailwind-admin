@@ -1,5 +1,8 @@
 # vue-simple-tailadmin
 
+## Live
+https://karahman34.github.io/vue-simple-tailwind-admin/
+
 ## Project setup
 ```
 yarn install
