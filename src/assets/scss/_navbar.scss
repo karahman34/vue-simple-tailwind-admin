@@ -1,0 +1,63 @@
+#navbar {
+  position: sticky;
+  top: 0;
+  height: $navbar-height;
+  z-index: 20;
+
+  .avatar {
+    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .notification-circle {
+    @apply bg-green-300 animate-pulse;
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .search-container {
+    max-width: 250px;
+
+    i {
+      // Mobile
+      @media screen and (max-width: 768px) {
+        & {
+          position: fixed;
+          top: 12px;
+          right: 7%;
+          z-index: 2;
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+
+      // Mobile
+      @media screen and (max-width: 768px) {
+        & {
+          z-index: 1;
+          position: fixed;
+          top: 13px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
+        }
+      }
+    }
+
+    // Mobile
+    @media screen and (max-width: 768px) {
+      & {
+        max-width: 180px;
+      }
+    }
+  }
+}

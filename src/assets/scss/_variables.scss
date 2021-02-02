@@ -1,0 +1,7 @@
+/** Component Variables */
+$navbar-height: 60px;
+
+/** Mobile */
+@media screen and (max-width: 768px) {
+  $navbar-height: 55px;
+}

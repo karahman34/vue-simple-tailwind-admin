@@ -10,9 +10,11 @@
 
 <script>
 import DefaultLayout from '@/layouts/default/Layout'
+import AuthLayout from '@/layouts/auth/Layout'
 
 export default {
   components: {
+    AuthLayout,
     DefaultLayout,
   },
 
@@ -29,7 +31,6 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

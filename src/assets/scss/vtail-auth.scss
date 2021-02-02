@@ -1,0 +1,16 @@
+@import 'form';
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+#vtail-auth-layout {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // background-image: linear-gradient(red, yellow);
+  color: white;
+  background-color: rgb(27, 27, 51);
+}

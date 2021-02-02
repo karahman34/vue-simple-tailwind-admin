@@ -10,6 +10,22 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/login',
+    name: 'Login',
+    meta: {
+      layout: 'auth',
+    },
+    component: () => import('@/views/Login'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    meta: {
+      layout: 'auth',
+    },
+    component: () => import('@/views/Register'),
+  },
 ]
 
 const router = new VueRouter({

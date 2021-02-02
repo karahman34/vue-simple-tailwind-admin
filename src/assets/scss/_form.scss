@@ -1,0 +1,17 @@
+.form-group {
+  @apply my-2;
+
+  label {
+    @apply inline-block mb-1 text-gray-900;
+  }
+
+  .form-control {
+    @apply px-3 text-gray-700 bg-white rounded transition-shadow border border-gray-300 focus:ring focus:ring-green-400 focus:ring-opacity-50;
+
+    outline: none;
+    display: block;
+    width: 100%;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+}
