@@ -1,5 +1,5 @@
 <template>
-  <div id="vtail-layout" class="text-gray-800 w-full min-h-screen">
+  <div id="vtail-layout" class="text-gray-800 w-full min-h-screen bg-gray-100">
     <div class="flex">
       <!-- Overlay -->
       <div
