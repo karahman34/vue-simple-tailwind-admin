@@ -1,5 +1,5 @@
 <template>
-  <div id="vtail-layout" class="text-gray-800">
+  <div id="vtail-layout" class="text-gray-800 w-full min-h-screen">
     <div class="flex">
       <!-- Overlay -->
       <div
@@ -10,14 +10,18 @@
       <!-- Sidebar -->
       <sidebar @toggleSideBar="showOverlay = $event"></sidebar>
 
-      <div class="w-full">
+      <!-- Section Content -->
+      <div class="w-full relative">
         <!-- Navbar -->
         <navbar @showOverlay="showOverlay = $event"></navbar>
 
         <!-- Router View -->
-        <section class="py-3 px-6">
+        <section class="py-3 px-6 mb-20">
           <slot></slot>
         </section>
+
+        <!-- Footer -->
+        <the-footer class="absolute bottom-0"></the-footer>
       </div>
     </div>
   </div>
@@ -26,11 +30,13 @@
 <script>
 import Sidebar from '@/layouts/default/Sidebar'
 import Navbar from '@/layouts/default/Navbar'
+import Footer from '@/layouts/default/components/Footer'
 
 export default {
   components: {
     Navbar,
     Sidebar,
+    'the-footer': Footer,
   },
 
   data: () => ({
