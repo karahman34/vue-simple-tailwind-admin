@@ -10,11 +10,11 @@
     </router-link>
 
     <!-- Drawer -->
-    <div class="drawer bg-white py-2 flex flex-col space-y-2">
+    <div class="drawer bg-white py-4 flex flex-col space-y-2">
       <!-- Group Menus List -->
       <div v-for="groupMenu in groupMenus" :key="groupMenu.header">
         <!-- Header -->
-        <p class="text-gray-500 uppercase font-medium px-4 md:px-5">
+        <p class="mb-1 text-gray-500 uppercase font-medium px-5 md:px-6">
           {{ groupMenu.header }}
         </p>
 
