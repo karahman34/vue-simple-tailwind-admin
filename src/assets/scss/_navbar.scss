@@ -3,6 +3,7 @@
   top: 0;
   height: $navbar-height;
   z-index: 20;
+  background-color: $navbar-background-color;
 
   .avatar {
     object-fit: cover;

@@ -1,7 +1,7 @@
 <template>
   <div
     id="navbar"
-    class="bg-gray-800 w-full flex justify-between items-center px-3 text-white"
+    class="w-full flex justify-between items-center px-3 text-white"
   >
     <!-- Left -->
     <div class="flex items-center space-x-3 md:space-x-6">

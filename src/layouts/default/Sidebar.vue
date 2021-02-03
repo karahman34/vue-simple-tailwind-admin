@@ -3,7 +3,7 @@
     <!-- Logo -->
     <router-link
       to="/"
-      class="logo-container flex items-center justify-center text-xl bg-gray-800 text-white uppercase font-semibold"
+      class="logo-container flex items-center justify-center text-xl text-white uppercase font-semibold"
     >
       <i class="mdi mdi-rocket-launch mr-1"></i>
       <span>Logo</span>
