@@ -18,7 +18,7 @@
 
       <!-- Search Mobile Activator -->
       <i
-        class="search-container-trigger mdi mdi-magnify mdi-24px mdi-flip-h cursor-pointer block md:hidden"
+        class="search-container-trigger mdi mdi-magnify text-xl mdi-flip-h cursor-pointer block md:hidden"
         @click="toggleSearchBox(true)"
       >
       </i>
@@ -43,13 +43,13 @@
     <div class="flex items-center space-x-4 md:space-x-5">
       <!-- Email Notification -->
       <div class="relative cursor-pointer">
-        <i class="mdi mdi-email-outline text-lg"></i>
+        <i class="mdi mdi-email-outline text-xl"></i>
         <div class="notification-circle"></div>
       </div>
 
       <!-- Bell Notification -->
       <div class="relative cursor-pointer">
-        <i class="mdi mdi-bell-outline text-lg"></i>
+        <i class="mdi mdi-bell-outline text-xl"></i>
         <div class="notification-circle"></div>
       </div>
 
@@ -61,17 +61,13 @@
             @click="trigger"
           >
             <!-- Avatar -->
-            <img
-              src="@/assets/avatar.jpg"
-              alt="avatar"
-              class="hidden avatar mr-1 md:block"
-            />
+            <img src="@/assets/avatar.jpg" alt="avatar" class="avatar mr-1" />
 
             <!-- Name -->
-            <span>Landy</span>
+            <span class="hidden md:block">Landy</span>
 
             <!-- Icon -->
-            <i class="mdi mdi-chevron-down mdi-18px"></i>
+            <i class="mdi mdi-chevron-down text-xl"></i>
           </div>
         </template>
 
