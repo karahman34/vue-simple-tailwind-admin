@@ -16,18 +16,25 @@
     </div>
 
     <!-- Second Row -->
-    <div class="mt-8 grid gap-4 grid-cols-1 lg:grid-cols-2"></div>
+    <div class="mt-8 grid gap-4 grid-cols-1 xl:grid-cols-2">
+      <weekly-chart></weekly-chart>
+      <tags-chart></tags-chart>
+    </div>
   </div>
 </template>
 
 <script>
 import QuickInfo from '@/components/QuickInfo'
+import WeeklyChart from '@/components/WeeklyChart'
+import TagsChart from '@/components/TagsChart.vue'
 
 export default {
   name: 'Home',
 
   components: {
     QuickInfo,
+    WeeklyChart,
+    TagsChart,
   },
 }
 </script>
