@@ -8,34 +8,27 @@
 
     <!-- Login Card -->
     <div class="bg-white rounded-lg py-3 px-5 w-full">
-      <form>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            ref="inputUsername"
-            id="username"
-            name="username"
-            class="form-control"
-            placeholder="Username"
-            required
-          />
-        </div>
+      <form @submit.prevent="formSubmitHandler">
+        <text-field
+          v-model="form.username"
+          label="Username"
+          name="username"
+          placeholder="Username"
+          prepend-icon="mdi mdi-account"
+          :error-message="errorMessages.username"
+        ></text-field>
 
-        <div class="form-group">
-          <div class="flex justify-between items-center">
-            <label for="password">Password</label>
-            <a href="#" class="text-green-500">Forgot Password</a>
-          </div>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            class="form-control"
-            placeholder="Password"
-            required
-          />
-        </div>
+        <text-field
+          v-model="form.password"
+          :type="showPassword ? 'text' : 'password'"
+          label="Password"
+          name="password"
+          placeholder="Password"
+          prepend-icon="mdi mdi-lock"
+          :append-icon="showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off'"
+          :error-message="errorMessages.password"
+          @click:append="showPassword = !showPassword"
+        ></text-field>
 
         <button
           type="submit"
@@ -54,9 +47,46 @@
 </template>
 
 <script>
+import TextField from '@/components/Forms/TextField'
+
 export default {
-  mounted() {
-    this.$refs.inputUsername.focus()
+  components: {
+    TextField,
+  },
+
+  data() {
+    return {
+      form: {
+        username: null,
+        password: null,
+      },
+      errorMessages: {
+        username: null,
+        password: null,
+      },
+      showPassword: false,
+    }
+  },
+
+  methods: {
+    validateField() {
+      let success = true
+      for (const key in this.errorMessages) {
+        if (!this.form[key] || !this.form[key].length) {
+          success = false
+          this.errorMessages[key] = `The ${key} field is required.`
+        } else {
+          this.errorMessages[key] = null
+        }
+      }
+
+      return success
+    },
+    formSubmitHandler() {
+      if (this.validateField()) {
+        this.$router.push('/')
+      }
+    },
   },
 }
 </script>

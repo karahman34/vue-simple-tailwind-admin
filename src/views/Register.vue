@@ -6,45 +6,42 @@
       Register
     </p>
 
-    <!-- Login Card -->
+    <!-- Register Card -->
     <div class="bg-white rounded-lg py-3 px-5 w-full">
-      <form>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            id="username"
-            ref="inputUsername"
-            type="text"
-            name="username"
-            class="form-control"
-            placeholder="Username"
-            required
-          />
-        </div>
+      <form @submit.prevent="formSubmitHandler">
+        <text-field
+          v-model="form.username"
+          label="Username"
+          name="username"
+          placeholder="Username"
+          prepend-icon="mdi mdi-account"
+          :error-message="errorMessages.username"
+        ></text-field>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Password"
-            required
-          />
-        </div>
+        <text-field
+          v-model="form.password"
+          :type="showPassword ? 'text' : 'password'"
+          label="Password"
+          name="password"
+          placeholder="Password"
+          prepend-icon="mdi mdi-lock"
+          :append-icon="showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off'"
+          :error-message="errorMessages.password"
+          @click:append="showPassword = !showPassword"
+        ></text-field>
 
-        <div class="form-group">
-          <label for="password_confirmation">Confirm Password</label>
-          <input
-            type="password"
-            id="password_confirmation"
-            name="password_confirmation"
-            class="form-control"
-            placeholder="Password"
-            required
-          />
-        </div>
+        <text-field
+          v-model="form.password_confirmation"
+          :type="showPasswordConfirmation ? 'text' : 'password'"
+          label="Confirm Password"
+          name="password_confirmation"
+          placeholder="Confirm Password"
+          prepend-icon="mdi mdi-lock"
+          :append-icon="
+            showPasswordConfirmation ? 'mdi mdi-eye' : 'mdi mdi-eye-off'
+          "
+          @click:append="showPasswordConfirmation = !showPasswordConfirmation"
+        ></text-field>
 
         <button
           type="submit"
@@ -63,9 +60,55 @@
 </template>
 
 <script>
+import TextField from '@/components/Forms/TextField'
+
 export default {
-  mounted() {
-    this.$refs.inputUsername.focus()
+  components: {
+    TextField,
+  },
+
+  data() {
+    return {
+      form: {
+        username: null,
+        password: null,
+        password_confirmation: null,
+      },
+      errorMessages: {
+        username: null,
+        password: null,
+      },
+      showPassword: false,
+      showPasswordConfirmation: false,
+    }
+  },
+
+  methods: {
+    validateField() {
+      let success = true
+      for (const key in this.errorMessages) {
+        if (!this.form[key] || !this.form[key].length) {
+          success = false
+          this.errorMessages[key] = `The ${key} field is required.`
+        } else {
+          this.errorMessages[key] = null
+        }
+      }
+
+      // Password Confirmation.
+      if (this.form.password !== this.form.password_confirmation) {
+        success = false
+        this.errorMessages.password =
+          'The confirm password field does not match.'
+      }
+
+      return success
+    },
+    formSubmitHandler() {
+      if (this.validateField()) {
+        this.$router.push('/')
+      }
+    },
   },
 }
 </script>
