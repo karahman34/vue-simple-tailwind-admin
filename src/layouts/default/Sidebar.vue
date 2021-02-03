@@ -112,6 +112,8 @@ export default {
       },
     ],
     isActive: true,
+    $navbar: null,
+    navbarZIndex: null,
     previousBodyColor: null,
   }),
 
@@ -138,6 +140,11 @@ export default {
 
         if (active) {
           this.listenClickOutside()
+
+          // Send navbar to the back.
+          this.$navbar.style.zIndex = 1
+        } else {
+          this.$navbar.style.zIndex = this.navbarZIndex
         }
       }
     },
@@ -152,6 +159,9 @@ export default {
 
     // Initial sub menus.
     this.initialSubMenus()
+
+    // Set navbar and the z-index.
+    this.setNavbarElement()
   },
 
   methods: {
@@ -159,6 +169,10 @@ export default {
       setEvent: 'SET_EVENT',
     }),
 
+    setNavbarElement() {
+      this.$navbar = document.querySelector('#navbar')
+      this.navbarZIndex = this.$navbar.style.zIndex
+    },
     setSidebar() {
       const width = window.innerWidth
 
