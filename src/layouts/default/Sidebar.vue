@@ -36,7 +36,7 @@
             <!-- Sub Menus Container -->
             <div
               v-if="menu.subMenus && menu.subMenus.length"
-              class="sub-menu-container flex flex-col space-y-2 ml-5 pl-3 border-l-2 border-gray-400"
+              class="sub-menus-container flex flex-col space-y-2 ml-5 pl-3 border-l-2 border-gray-400"
             >
               <!-- Sub Menu Link -->
               <sub-menu-link
@@ -186,7 +186,7 @@ export default {
       } else {
         menuLink.classList.remove('sub-menus-active')
         subMenuContainer.style.maxHeight = null
-        setTimeout(() => subMenuContainer.classList.remove('mt-2'), 550)
+        setTimeout(() => subMenuContainer.classList.remove('mt-2'), 300)
       }
     },
 
@@ -211,7 +211,7 @@ export default {
         if (
           Array.from(subMenu.classList).includes('router-link-exact-active')
         ) {
-          const subMenuContainer = subMenu.closest('.sub-menu-container')
+          const subMenuContainer = subMenu.closest('.sub-menus-container')
           const menuLink = subMenuContainer.previousElementSibling
 
           this.toggleSubMenus(true, menuLink, subMenuContainer)
