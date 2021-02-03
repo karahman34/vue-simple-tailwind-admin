@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-white rounded shadow flex overflow-hidden">
+  <div
+    class="bg-white py-3 px-5 rounded shadow flex items-center space-x-3 md:space-x-5 md:py-5"
+  >
     <!-- Icon -->
-    <div
-      class="text-green-500 h-20 w-24 flex items-center justify-center lg:h-24"
-    >
+    <div class="text-green-500 flex items-center justify-center">
       <i class="mdi text-4xl" :class="icon"></i>
     </div>
 
