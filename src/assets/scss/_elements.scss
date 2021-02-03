@@ -1,4 +1,13 @@
 .dropdown {
+
+  .dropdown-divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(145, 145, 145, 0.2);
+    display: block;
+    margin: 2px 0;
+  }
+
   .dropdown-content {
     opacity: 0;
     transform: scale(0);
