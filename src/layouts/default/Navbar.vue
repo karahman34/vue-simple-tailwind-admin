@@ -73,6 +73,18 @@
 
         <dropdown-content>
           <dropdown-item>
+            <i class="mdi mdi-account"></i>
+            <span>Profile</span>
+          </dropdown-item>
+
+          <dropdown-item>
+            <i class="mdi mdi-cog"></i>
+            <span>Settings</span>
+          </dropdown-item>
+
+          <dropdown-divider></dropdown-divider>
+
+          <dropdown-item class="text-red-500">
             <i class="mdi mdi-logout"></i>
             <span>Logout</span>
           </dropdown-item>
@@ -85,6 +97,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import Dropdown from '@/components/Dropdown/Dropdown'
+import DropdownDivider from '@/components/Dropdown/DropdownDivider'
 import DropdownContent from '@/components/Dropdown/DropdownContent'
 import DropdownItem from '@/components/Dropdown/DropdownItem'
 
@@ -93,6 +106,7 @@ export default {
     Dropdown,
     DropdownContent,
     DropdownItem,
+    DropdownDivider,
   },
 
   methods: {
