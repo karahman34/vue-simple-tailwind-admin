@@ -28,7 +28,9 @@
         ref="searchContainer"
         class="relative search-container hidden md:block"
       >
-        <i class="mdi mdi-magnify mdi-24px absolute text-gray-500 right-2"></i>
+        <i
+          class="mdi mdi-magnify text-2xl text-gray-600 absolute right-2 md:top-1/2 md:transform md:-translate-y-1/2 md:text-xl"
+        ></i>
         <input
           type="text"
           class="rounded outline-none py-1 px-3 pr-9 text-gray-600 transition-shadow focus:ring focus:ring-green-400"
@@ -110,7 +112,7 @@ export default {
     emitShowOverlayEvent(value) {
       this.$emit('showOverlay', value)
     },
-    closeSearchOnClickOutside(e) {
+    clickEventHandler(e) {
       const target = e.target
       const ignores = [
         this.$refs.searchContainer,
@@ -127,27 +129,43 @@ export default {
 
       this.toggleSearchBox(false)
     },
+    resizeEventHandler() {
+      const width = window.innerWidth
+
+      if (width >= 768) {
+        this.toggleSearchBox(false)
+      }
+    },
     toggleSearchBox(value) {
       if (value) {
+        // Show the overlay and show the search box.
         this.emitShowOverlayEvent(true)
         this.$refs.searchContainer.classList.remove('hidden')
 
-        document.addEventListener('click', this.closeSearchOnClickOutside)
+        // Listen for click outside and the resize event.
+        document.addEventListener('click', this.clickEventHandler)
+        window.addEventListener('resize', this.resizeEventHandler)
 
         this.$nextTick(() => {
           this.$refs.searchContainer.querySelector('input').focus()
         })
       } else {
+        // Hide the overlay and show the search box.
         this.emitShowOverlayEvent(false)
         this.$refs.searchContainer.classList.add('hidden')
 
-        document.removeEventListener('click', this.closeSearchOnClickOutside)
+        this.removeEventsListener()
       }
+    },
+    removeEventsListener() {
+      // Remove event for click outside and the resize.
+      window.removeEventListener('resize', this.resizeEventHandler)
+      document.removeEventListener('click', this.clickEventHandler)
     },
   },
 
   beforeDestroy() {
-    document.removeEventListener('click', this.closeSearchOnClickOutside)
+    this.removeEventsListener()
   },
 }
 </script>
