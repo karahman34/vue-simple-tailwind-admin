@@ -16,22 +16,18 @@
     </div>
 
     <!-- Second Row -->
-    <div class="mt-8 grid gap-4 grid-cols-1 lg:grid-cols-2">
-      <simple-form></simple-form>
-    </div>
+    <div class="mt-8 grid gap-4 grid-cols-1 lg:grid-cols-2"></div>
   </div>
 </template>
 
 <script>
 import QuickInfo from '@/components/QuickInfo'
-import SimpleForm from '@/components/SimpleForm.vue'
 
 export default {
   name: 'Home',
 
   components: {
     QuickInfo,
-    SimpleForm,
   },
 }
 </script>
